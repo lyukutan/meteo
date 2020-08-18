@@ -1,24 +1,19 @@
 package com.example.weather;
 
 
-import com.example.weather.clients.WeatherClient;
+import com.example.weather.clients.CountryInfoServiceClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
-import wsdl.GetCityForecastByZIPResponse;
 
 public class Application {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(JaxbConfig.class, args);
 
-        WeatherClient weatherClient = ctx.getBean(WeatherClient.class);
+        CountryInfoServiceClient countryInfoServiceClient = ctx.getBean(CountryInfoServiceClient.class);
 
-        String zipCode = "94304";
-        if (args.length > 0) {
-            zipCode = args[0];
-        }
-        GetCityForecastByZIPResponse response = weatherClient.getCityForecastByZip(zipCode);
-        weatherClient.printResponse(response);
+        System.out.println(countryInfoServiceClient.getCountryNameByISOCode("AD").getCountryNameResult());
+
     }
 
 }

@@ -1,6 +1,6 @@
 package com.example.weather;
 
-import com.example.weather.clients.WeatherClient;
+import com.example.weather.clients.CountryInfoServiceClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
@@ -16,9 +16,9 @@ public class JaxbConfig {
     }
 
     @Bean
-    public WeatherClient cardChecker(Jaxb2Marshaller marshaller) {
-        WeatherClient  client = new WeatherClient ();
-        client.setDefaultUri("http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl");
+    public CountryInfoServiceClient cardChecker(Jaxb2Marshaller marshaller) {
+        CountryInfoServiceClient client = new CountryInfoServiceClient();
+        client.setDefaultUri("http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL");
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);
         return client;

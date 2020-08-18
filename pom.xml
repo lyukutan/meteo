@@ -71,7 +71,7 @@
                     <forceRegenerate>true</forceRegenerate>
                     <schemas>
                         <schema>
-                            <url>http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl</url>
+                            <url>http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL</url>
                         </schema>
                     </schemas>
                 </configuration>
