@@ -22,7 +22,10 @@ public class ClientConfig {
     }
 
     @Bean
-    public CountryInfoServiceClient productionServiceClient(final Jaxb2Marshaller marshaller, final HttpComponentsMessageSender httpComponentsMessageSender, final WebServiceMessageFactory messageFactory, @Value("${base.url}") final String baseUrl) {
+    public CountryInfoServiceClient productionServiceClient(final Jaxb2Marshaller marshaller,
+                                                            final HttpComponentsMessageSender httpComponentsMessageSender,
+                                                            final WebServiceMessageFactory messageFactory,
+                                                            @Value("${base.url}") final String baseUrl) {
         return new CountryInfoServiceClient(marshaller, httpComponentsMessageSender, messageFactory, baseUrl);
     }
 
