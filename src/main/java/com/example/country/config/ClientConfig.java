@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
-import org.springframework.ws.WebServiceMessageFactory;
-import org.springframework.ws.soap.SoapVersion;
-import org.springframework.ws.soap.saaj.SaajSoapMessageFactory;
 import org.springframework.ws.transport.http.HttpComponentsMessageSender;
 
 @Configuration
@@ -24,9 +21,8 @@ public class ClientConfig {
     @Bean
     public CountryInfoServiceClient productionServiceClient(final Jaxb2Marshaller marshaller,
                                                             final HttpComponentsMessageSender httpComponentsMessageSender,
-                                                            final WebServiceMessageFactory messageFactory,
                                                             @Value("${base.url}") final String baseUrl) {
-        return new CountryInfoServiceClient(marshaller, httpComponentsMessageSender, messageFactory, baseUrl);
+        return new CountryInfoServiceClient(marshaller, httpComponentsMessageSender, baseUrl);
     }
 
     @Bean
@@ -38,12 +34,5 @@ public class ClientConfig {
                         .build()
         );
         return httpComponentsMessageSender;
-    }
-
-    @Bean
-    public SaajSoapMessageFactory messageFactory() {
-        SaajSoapMessageFactory messageFactory = new SaajSoapMessageFactory();
-        messageFactory.setSoapVersion(SoapVersion.SOAP_12);
-        return messageFactory;
     }
 }
