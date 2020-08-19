@@ -6,14 +6,14 @@ import org.springframework.ws.transport.http.HttpComponentsMessageSender;
 
 public abstract class ServiceClient {
 
-    private final Jaxb2Marshaller marshaller;
-    private final HttpComponentsMessageSender httpComponentsMessageSender;
-    private final String baseUrl;
-    private final WebServiceTemplate webServiceTemplate;
+    private Jaxb2Marshaller marshaller;
+    private HttpComponentsMessageSender httpComponentsMessageSender;
+    private String baseUrl;
+    private WebServiceTemplate webServiceTemplate;
 
-    protected ServiceClient(final Jaxb2Marshaller marshaller,
-                            final HttpComponentsMessageSender httpComponentsMessageSender,
-                            final String baseUrl) {
+    protected ServiceClient(Jaxb2Marshaller marshaller,
+                            HttpComponentsMessageSender httpComponentsMessageSender,
+                            String baseUrl) {
         this.marshaller = marshaller;
         this.httpComponentsMessageSender = httpComponentsMessageSender;
         this.baseUrl = baseUrl;

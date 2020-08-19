@@ -6,9 +6,9 @@ import org.springframework.ws.transport.http.HttpComponentsMessageSender;
 
 public class CountryInfoServiceClient extends ServiceClient {
 
-    public CountryInfoServiceClient(final Jaxb2Marshaller marshaller,
-                                    final HttpComponentsMessageSender httpComponentsMessageSender,
-                                    final String baseUrl) {
+    public CountryInfoServiceClient(Jaxb2Marshaller marshaller,
+                                    HttpComponentsMessageSender httpComponentsMessageSender,
+                                    String baseUrl) {
         super(marshaller, httpComponentsMessageSender, baseUrl);
     }
 
