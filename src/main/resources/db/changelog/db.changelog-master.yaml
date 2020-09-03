@@ -1,0 +1,63 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-lesson1.yaml
+  - changeSet:
+      id: 1
+      author: lyukutan
+      changes:
+        - createTable:
+            tableName: person
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: surname
+                  type: varchar(512)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: patronymic
+                  type: varchar(50)
+  - changeSet:
+      id: 2
+      author: lyukutan
+      comment: "Create 2 user"
+      changes:
+        - insert:
+            tableName: person
+            columns:
+              - column:
+                  name: name
+                  value: "Dima"
+              - column:
+                  name: surname
+                  value: "Dimovich"
+              - column:
+                  name: patronymic
+                  value: "Dmitriev"
+        - insert:
+            tableName: person
+            columns:
+              - column:
+                  name: name
+                  value: "Vova"
+              - column:
+                  name: surname
+                  value: "Vovavich"
+              - column:
+                  name: patronymic
+                  value: "Vovav"
+      rollback:
+        - delete:
+            tableName: person
+            where: name in ('Dima', 'Vova')
