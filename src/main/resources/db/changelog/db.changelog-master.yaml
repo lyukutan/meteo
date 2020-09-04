@@ -15,19 +15,16 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: name
+                  name: fio
                   type: varchar(50)
                   constraints:
                     unique: true
                     nullable: false
               - column:
-                  name: surname
-                  type: varchar(512)
+                  name: ident
+                  type: BIGINT
                   constraints:
                     nullable: false
-              - column:
-                  name: patronymic
-                  type: varchar(50)
   - changeSet:
       id: 2
       author: lyukutan
@@ -37,27 +34,21 @@ databaseChangeLog:
             tableName: person
             columns:
               - column:
-                  name: name
-                  value: "Dima"
+                  name: fio
+                  value: "Dima Dimovich Dmitriev"
               - column:
-                  name: surname
-                  value: "Dimovich"
-              - column:
-                  name: patronymic
-                  value: "Dmitriev"
+                  name: ident
+                  value: "3808557789"
         - insert:
             tableName: person
             columns:
               - column:
-                  name: name
-                  value: "Vova"
+                  name: fio
+                  value: "Vova Vovavich Vovav"
               - column:
-                  name: surname
-                  value: "Vovavich"
-              - column:
-                  name: patronymic
-                  value: "Vovav"
+                  name: ident
+                  value: "3808110025"
       rollback:
         - delete:
             tableName: person
-            where: name in ('Dima', 'Vova')
+            where: name in ('Dima Dimovich Dmitriev', 'Vova Vovavich Vovav')
