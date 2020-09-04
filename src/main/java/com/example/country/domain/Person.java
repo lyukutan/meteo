@@ -23,5 +23,7 @@ public class Person {
     @Column(name = "fio", unique = true, nullable = false)
     private String fio;
 
-
+    @Column(name = "country")
+    private String country;
+    
 }
