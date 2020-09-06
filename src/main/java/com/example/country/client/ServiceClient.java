@@ -9,7 +9,7 @@ public abstract class ServiceClient {
     private Jaxb2Marshaller marshaller;
     private HttpComponentsMessageSender httpComponentsMessageSender;
     private String baseUrl;
-    private WebServiceTemplate webServiceTemplate;
+    protected WebServiceTemplate webServiceTemplate;
 
     protected ServiceClient(Jaxb2Marshaller marshaller,
                             HttpComponentsMessageSender httpComponentsMessageSender,
